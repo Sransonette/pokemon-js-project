@@ -64,3 +64,67 @@ puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.7) lib/puma/server.rb:472:in `process_client'
 puma (4.3.7) lib/puma/server.rb:328:in `block in run'
 puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (1.0ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sean"], ["created_at", "2021-02-16 22:23:56.267078"], ["updated_at", "2021-02-16 22:23:56.267078"]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.8ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sean"], ["created_at", "2021-02-16 22:25:32.605567"], ["updated_at", "2021-02-16 22:25:32.605567"]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (1.1ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Sean"], ["created_at", "2021-02-16 22:30:40.112482"], ["updated_at", "2021-02-16 22:30:40.112482"]]
+  [1m[35m (139.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPokemon Create (1.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["species", "Pikachu"], ["trainer_id", 1], ["created_at", "2021-02-16 22:35:53.794109"], ["updated_at", "2021-02-16 22:35:53.794109"]]
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ? LIMIT ?[0m  [["trainer_id", 1], ["LIMIT", 11]]
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-16 16:43:59 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as */*
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 4.9ms | ActiveRecord: 0.8ms | Allocations: 5643)
+
+
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-16 17:20:43 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PokemonsController#index as */*
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 4.7ms | ActiveRecord: 0.7ms | Allocations: 5597)
+
+
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-16 17:24:04 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as */*
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 5.4ms | ActiveRecord: 1.0ms | Allocations: 5071)
+
+

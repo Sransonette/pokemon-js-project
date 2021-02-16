@@ -13,7 +13,7 @@ class Api::V1::PokemonsController < ApplicationController
 
     private
     def pokemon_params
-        params.require(:species).permit(:name)
+        params.require(:pokemon).permit(:species, :trainer_id)
     end
 
 
