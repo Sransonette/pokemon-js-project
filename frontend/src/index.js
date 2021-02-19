@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log('hi')
     fetchPokemons()
-    formListener()
+    //formListener()
 
 } )
 
@@ -11,6 +10,3 @@ function fetchPokemons() {
     .then(pokemons => console.log(pokemons))
 }
 
-function formListener(){
-    const postForm = 
-}
