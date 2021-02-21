@@ -1,10 +1,12 @@
+const newFetch = new FetchFunctions()
+
 document.addEventListener('DOMContentLoaded', function(){
     Trainer.createTrainer()
     // Pokemon.renderPokemon()
-    fetchPokemons()
     
-    
+    // Pokemon.renderPokemon()
 })
+
 
 
 
