@@ -25,6 +25,19 @@ class FetchFunctions {
         .then(trainers => console.log(trainers))
     }
 
+    async destroyPokemon(pokemon) { 
+        debugger;
+        const resp = fetch(`${this.pokemonURL}/${pokemon.id}`, {
+            method: "DESTROY",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+
+        })
+        return resp.json()
+    }
+
     // newFetch.fetchPokemons()
     //       .then (pokemons => {
     //       for (let i=0; i < pokemons.length; i++){

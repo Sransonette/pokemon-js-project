@@ -27,20 +27,26 @@ class Pokemon {
         const releaseForm = document.createElement('form')
         const releaseBtn = document.createElement('input')
         releaseBtn.setAttribute('type','submit')
-       releaseForm.appendChild(releaseBtn)
+        releaseBtn.value = 'Release'
+        releaseBtn.id = `release#${this.id}`
+        releaseForm.appendChild(releaseBtn)
         releaseForm.id = `form#${this.id}`
-
         let thePokemon = document.createElement("LI");
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(lastPokemon)
         container.appendChild(releaseForm)
+        releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
+        
 
        
        
     }
     
-    releasePokemon() {
-        console.log('hello')
+    async releasePokemon(e) {
+        e.preventDefault()
+        let resp = await newFetch.destroyPokemon(this)
+        
+        
     }
 
     
