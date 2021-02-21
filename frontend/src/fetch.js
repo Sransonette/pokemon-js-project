@@ -8,12 +8,15 @@ class FetchFunctions {
 
     }
 
-    fetchPokemons() {
-        return fetch(this.pokemonURL)
-        .then(resp => {
-            let json = resp.json()
-            return json})
-        //.then(pokemons => console.log(pokemons))
+    async fetchPokemons() {
+        const response = await fetch(this.pokemonURL, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        return response.json()
     }
 
     fetchTrainers() {
@@ -21,6 +24,14 @@ class FetchFunctions {
         .then(resp => resp.json())
         .then(trainers => console.log(trainers))
     }
+
+    // newFetch.fetchPokemons()
+    //       .then (pokemons => {
+    //       for (let i=0; i < pokemons.length; i++){
+    //           let pokemon = new Pokemon(pokemons[i])
+    //           pokemon.renderPokemon()
+    //       }
+    //       })
 
 
 
