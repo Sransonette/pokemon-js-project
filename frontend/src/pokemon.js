@@ -10,20 +10,25 @@ class Pokemon {
 
     static displayPokemon() {
         return `
-        <center>
+        
         <form id="pokemon-form">
         <label id="species-label">Catch a Pokemon!</label>
-        <p>Pokemon go here</p>
-        <li> 
-        </li>
+        <p>Pokemon go here</p> 
+        <script>
+          newFetch.fetchPokemons()
+          .then (pokemons => {
+          for (let i=0; i < pokemons.length; i++){
+              let pokemon = new Pokemon(pokemons[i])
+              pokemon.renderPokemon()
+          }
+          })
+        </script>
+
         </form>
-        </center>
+        
       `
     }
-
-    // renderLi() {
-    //     return `<li data-id=${this.species}></li>`
-    // }
+    
     
     renderPokemon() {
                
@@ -32,11 +37,10 @@ class Pokemon {
         thePokemon.appendChild(lastPokemon);
         document.getElementById("myPokemon").appendChild(thePokemon)
         
-        // let newPokemon = ""
-        // this.forEach(pokemon => {
-        // newPokemon += `<li>${this.species} </li>`
-        // })
-        
     }
+
+    
+
+    
 
 }

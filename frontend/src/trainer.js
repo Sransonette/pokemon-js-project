@@ -43,14 +43,13 @@ class Trainer {
         capture.innerText = "Which Pokemon would you like to catch?"
         nameInput.remove('name-input');
         document.querySelector('.pokemon-collection').innerHTML += Pokemon.displayPokemon()
-        newFetch.fetchPokemons()
-            .then (pokemons => {
-                for (let i=0; i < pokemons.length; i++){
-                    let pokemon = new Pokemon(pokemons[i])
-                    pokemon.renderPokemon()
-                }
-            
-            })
+        // newFetch.fetchPokemons()
+        //   .then (pokemons => {
+        //   for (let i=0; i < pokemons.length; i++){
+        //       let pokemon = new Pokemon(pokemons[i])
+        //       pokemon.renderPokemon()
+        //   }
+        //   })
             
 
     }
