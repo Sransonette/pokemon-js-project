@@ -10,27 +10,18 @@ class Pokemon {
 
     }
 
-    // static displayPokemon() {
-    //     return `
-        
-    //     <form id="pokemon-form">
-    //     <label id="species-label">Catch a Pokemon!</label>
-    //     <p>Pokemon go here</p> 
-    //     </form>
-        
-    //   `
-    // }
-
     renderPokemon() {
+        if(this.trainer_id ==1){
         const container = document.querySelector(".pokemon-collection")
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(lastPokemon)
+        }
 
     }    
     
     releasePokemonBtn() {
-        if(this.trainer_id != 1){
-            const container = document.querySelector(".pokemon-collection")
+        // if(this.trainer_id !== 1){
+        const container = document.querySelector(".pokemon-collection")
         const releaseForm = document.createElement('form')
         const releaseBtn = document.createElement('input')
         releaseBtn.setAttribute('type','submit')
@@ -40,11 +31,11 @@ class Pokemon {
         releaseForm.id = `form#${this.id}`
         container.appendChild(releaseForm)
         releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
-        }
+        // }
     }
 
     catchPokemonBtn() {
-        if(this.trainer_id = 1){
+        if(this.trainer_id == 1){
         const container = document.querySelector(".pokemon-collection")
         const catchForm = document.createElement('form')
         const catchBtn = document.createElement('input')

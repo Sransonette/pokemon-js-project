@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 const grabPokemon = async () => {
     const pokemon = await newFetch.fetchPokemons()
+    
     pokemon.map(pokemon => {
        let newPokemon = new Pokemon(pokemon)
        newPokemon.renderPokemon() 
-       debugger;
        newPokemon.catchPokemonBtn()
        newPokemon.releasePokemonBtn()
     })
