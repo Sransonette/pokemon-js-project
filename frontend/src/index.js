@@ -14,6 +14,8 @@ const grabPokemon = async () => {
     pokemon.map(pokemon => {
        let newPokemon = new Pokemon(pokemon)
        newPokemon.renderPokemon() 
+       newPokemon.catchPokemonBtn()
+       newPokemon.releasePokemonBtn()
     })
 }
 

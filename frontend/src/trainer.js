@@ -45,14 +45,6 @@ class Trainer {
         nameInput.remove('name-input');
         submitUserBtn.remove('submitUserBtn')
         
-        //document.querySelector('.pokemon-collection').innerHTML += Pokemon.displayPokemon()
-        // newFetch.fetchPokemons()
-        //   .then (pokemons => {
-        //   for (let i=0; i < pokemons.length; i++){
-        //       let pokemon = new Pokemon(pokemons[i])
-        //       pokemon.renderPokemon()
-        //   }
-        //   })
             
 
     }
