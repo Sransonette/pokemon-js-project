@@ -36,9 +36,6 @@ class Pokemon {
         container.appendChild(lastPokemon)
         container.appendChild(releaseForm)
         releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
-        
-
-       
        
     }
     

@@ -37,11 +37,14 @@ class Trainer {
         let welcome = document.getElementById('welcome')
         let capture = document.getElementById('name-label')
         let nameInput = document.getElementById('name-input')
+        let submitUserBtn = document.getElementById('submitUserBtn')
         let inputButton = document.getElementById('input')
         let pokemonContainer = document.querySelector('.pokemon-collection')
         welcome.innerText = `Welcome Trainer ${this.name}`
         capture.innerText = "Which Pokemon would you like to catch?"
         nameInput.remove('name-input');
+        submitUserBtn.remove('submitUserBtn')
+        
         //document.querySelector('.pokemon-collection').innerHTML += Pokemon.displayPokemon()
         // newFetch.fetchPokemons()
         //   .then (pokemons => {
