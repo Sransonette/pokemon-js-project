@@ -33,10 +33,21 @@ class FetchFunctions {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
+                    body: JSON.stringify(
+                        {
+                            pokemon: {
+                                species: pokemon.species,
+                                trainer_id: pokemon.trainer_id
+                            }
+                        })
+                })
+                    .then(resp => {
+                        return resp.json()
+                    })
 
-        })
-        return resp.json()
     }
+        
+    
 
     async catchPokemonFetch(pokemon) { 
         debugger;
@@ -46,10 +57,20 @@ class FetchFunctions {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
+                    body: JSON.stringify(
+                        {
+                            pokemon: {
+                                species: pokemon.species,
+                                trainer_id: pokemon.trainer_id
+                            }
+                        })
+                })
+                    .then(resp => {
+                        return resp.json()
+                    })
 
-        })
-        return resp.json()
     }
+
 
     // newFetch.fetchPokemons()
     //       .then (pokemons => {
