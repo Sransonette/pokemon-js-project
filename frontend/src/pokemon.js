@@ -29,7 +29,8 @@ class Pokemon {
     }    
     
     releasePokemonBtn() {
-        const container = document.querySelector(".pokemon-collection")
+        if(this.trainer_id != 1){
+            const container = document.querySelector(".pokemon-collection")
         const releaseForm = document.createElement('form')
         const releaseBtn = document.createElement('input')
         releaseBtn.setAttribute('type','submit')
@@ -39,10 +40,11 @@ class Pokemon {
         releaseForm.id = `form#${this.id}`
         container.appendChild(releaseForm)
         releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
-       
+        }
     }
 
     catchPokemonBtn() {
+        if(this.trainer_id = 1){
         const container = document.querySelector(".pokemon-collection")
         const catchForm = document.createElement('form')
         const catchBtn = document.createElement('input')
@@ -54,17 +56,16 @@ class Pokemon {
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(catchForm)
         catchForm.addEventListener('submit', this.catchPokemon.bind(this))
+        }
     }
     
     async releasePokemon(e) {
-        debugger;
         e.preventDefault()
         let resp = await newFetch.destroyPokemon(this)
         
     }
 
     async catchPokemon(e) {
-        debugger;
         e.preventDefault()
         let resp = await newFetch.catchPokemonFetch(this)
         

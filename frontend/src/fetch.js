@@ -26,9 +26,8 @@ class FetchFunctions {
     }
 
     async destroyPokemon(pokemon) {
-        debugger; 
         const resp = fetch(`${this.pokemonURL}/${pokemon.id}`, {
-            method: "DESTROY",
+            method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
@@ -50,7 +49,6 @@ class FetchFunctions {
     
 
     async catchPokemonFetch(pokemon) { 
-        debugger;
         const resp = fetch(`${this.pokemonURL}`, {
             method: "POST",
                     headers: {
