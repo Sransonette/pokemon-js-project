@@ -7,16 +7,14 @@ class Pokemon {
         this.trainer_id =pokemon.trainer_id
         Pokemon.allPokemon.push(this)
         
-
     }
 
     renderPokemon() {
-        if(this.trainer_id ==1){
+        //if(this.trainer_id ==1){
         const container = document.querySelector(".pokemon-collection")
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(lastPokemon)
-        }
-
+        //}
     }    
     
     releasePokemonBtn() {
@@ -35,7 +33,7 @@ class Pokemon {
     }
 
     catchPokemonBtn() {
-        if(this.trainer_id == 1){
+        //if(this.trainer_id == 1){
         const container = document.querySelector(".pokemon-collection")
         const catchForm = document.createElement('form')
         const catchBtn = document.createElement('input')
@@ -47,7 +45,7 @@ class Pokemon {
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(catchForm)
         catchForm.addEventListener('submit', this.catchPokemon.bind(this))
-        }
+       // }
     }
     
     async releasePokemon(e) {

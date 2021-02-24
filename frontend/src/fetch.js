@@ -5,7 +5,19 @@ class FetchFunctions {
         this.baseURL = "http://localhost:3000/api/v1"
         this.trainerURL = `${this.baseURL}/trainers`
         this.pokemonURL = `${this.baseURL}/pokemons`
+        this.trainersPokemonURL = `${this.baseURL}/trainers_pokemons`
 
+    }
+
+    async fetchTrainersPokemons() {
+        const response = await fetch(this.trainersPokemonURL, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        return response.json()
     }
 
     async fetchPokemons() {
@@ -59,7 +71,7 @@ class FetchFunctions {
                         {
                             pokemon: {
                                 species: pokemon.species,
-                                trainer_id: pokemon.trainer_id
+                                trainer: pokemon.trainer_id
                             }
                         })
                 })
@@ -68,16 +80,6 @@ class FetchFunctions {
                     })
 
     }
-
-
-    // newFetch.fetchPokemons()
-    //       .then (pokemons => {
-    //       for (let i=0; i < pokemons.length; i++){
-    //           let pokemon = new Pokemon(pokemons[i])
-    //           pokemon.renderPokemon()
-    //       }
-    //       })
-
 
 
 }
