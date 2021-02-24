@@ -1,3 +1,3 @@
 class Trainer < ApplicationRecord
-    has_many :pokemons
+    has_many :trainer_pokemons
 end
