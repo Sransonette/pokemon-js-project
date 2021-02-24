@@ -7,10 +7,8 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 document.addEventListener('DOMContentLoaded', function(){
-    // let trainerForm = document.getElementById('trainer-form')
-    let welcome = document.getElementById('welcome')
-    welcome.addEventListener('click', grabTrainersPokemon)
-    // TrainerPokemon.createTrainerPokemon()
+    let trainerName = document.getElementById('trainer-name')
+    trainerName.addEventListener('click', grabTrainersPokemon)
 })
 
 const grabTrainersPokemon = async () => {

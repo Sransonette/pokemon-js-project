@@ -30,6 +30,7 @@ class Pokemon {
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(catchForm)
         catchForm.addEventListener('submit', this.catchPokemon.bind(this))
+        
        // }
     }
     
