@@ -2,16 +2,18 @@ class TrainerPokemon {
 
     constructor(trainerPokemon){
         this.id = trainerPokemon.id
-        this.name = trainerPokemon.name
+        this.name = trainerPokemon.species
     }
 
     static createTrainerPokemon(){
-        let trainerForm = document.getElementById('trainer-form')
+        debugger
+        // if (Trainer.this.id )
+        //let trainerForm = document.getElementById('trainer-form')
         let welcome = document.getElementById('welcome')
-        welcome.addEventListener('submit', function(e){
+        welcome.addEventListener('click', function(e){
             e.preventDefault()
                 fetch(this.trainersPokemonURL, {
-                    method: "POST",
+                    method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
@@ -35,18 +37,28 @@ class TrainerPokemon {
     }
 
     displayPokemon() {
-        let welcome = document.getElementById('welcome')
+        const currentForm = document.createElement('form')
         let capture = document.getElementById('name-label')
-        let nameInput = document.getElementById('name-input')
-        let submitUserBtn = document.getElementById('submitUserBtn')
-        let pokemonContainer = document.querySelector('.pokemon-collection')
-        welcome.innerText = `${this.name} current caught pokemon`
+        const container = document.querySelector(".pokemon-collection")
+        let pokemonContainer = document.querySelector('.trainer-p-collection')
+        container.remove()
+        let lastPokemon = document.createTextNode(this.species);
+        container.appendChild(currentForm)
         capture.innerText = "Below are the pokemon you currently have caught"
-        nameInput.remove('name-input');
-        submitUserBtn.remove('submitUserBtn')
         
-            
+    }
 
+    releasePokemonBtn() {
+        const container = document.querySelector(".pokemon-collection")
+        const releaseForm = document.createElement('form')
+        const releaseBtn = document.createElement('input')
+        releaseBtn.setAttribute('type','submit')
+        releaseBtn.value = 'Release'
+        releaseBtn.id = `release#${this.id}`
+        releaseForm.appendChild(releaseBtn)
+        releaseForm.id = `form#${this.id}`
+        container.appendChild(releaseForm)
+        releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
     }
 
 

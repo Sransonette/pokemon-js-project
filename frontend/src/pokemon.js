@@ -16,21 +16,6 @@ class Pokemon {
         container.appendChild(lastPokemon)
         //}
     }    
-    
-    releasePokemonBtn() {
-        // if(this.trainer_id !== 1){
-        const container = document.querySelector(".pokemon-collection")
-        const releaseForm = document.createElement('form')
-        const releaseBtn = document.createElement('input')
-        releaseBtn.setAttribute('type','submit')
-        releaseBtn.value = 'Release'
-        releaseBtn.id = `release#${this.id}`
-        releaseForm.appendChild(releaseBtn)
-        releaseForm.id = `form#${this.id}`
-        container.appendChild(releaseForm)
-        releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
-        // }
-    }
 
     catchPokemonBtn() {
         //if(this.trainer_id == 1){
@@ -59,6 +44,8 @@ class Pokemon {
         let resp = await newFetch.catchPokemonFetch(this)
         
     }
+
+    
 
 
 

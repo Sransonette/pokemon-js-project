@@ -63,6 +63,7 @@ class FetchFunctions {
     
 
     async catchPokemonFetch(trainerPokemon) { 
+        debugger;
         const resp = fetch(`${this.trainersPokemonURL}`, {
             method: "POST",
                     headers: {
@@ -73,7 +74,8 @@ class FetchFunctions {
                         {
                             trainerPokemon: {
                                 species: trainerPokemon.species,
-                                trainer: trainerPokemon.trainer_id
+                                trainer_id: trainerPokemon.trainer_id,
+                                pokemon_id: trainerPokemon.pokemon_id
                             }
                         })
                 })
