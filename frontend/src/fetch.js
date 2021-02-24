@@ -10,6 +10,7 @@ class FetchFunctions {
     }
 
     async fetchTrainersPokemons() {
+
         const response = await fetch(this.trainersPokemonURL, {
             method: 'GET',
             headers: {
@@ -18,6 +19,7 @@ class FetchFunctions {
             }
         })
         return response.json()
+
     }
 
     async fetchPokemons() {
@@ -38,7 +40,7 @@ class FetchFunctions {
     }
 
     async destroyPokemon(pokemon) {
-        const resp = fetch(`${this.pokemonURL}/${pokemon.id}`, {
+        const resp = fetch(`${this.trainersPokemonURL}/${pokemon.id}`, {
             method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
@@ -60,8 +62,8 @@ class FetchFunctions {
         
     
 
-    async catchPokemonFetch(pokemon) { 
-        const resp = fetch(`${this.pokemonURL}`, {
+    async catchPokemonFetch(trainerPokemon) { 
+        const resp = fetch(`${this.trainersPokemonURL}`, {
             method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -69,9 +71,9 @@ class FetchFunctions {
                     },
                     body: JSON.stringify(
                         {
-                            pokemon: {
-                                species: pokemon.species,
-                                trainer: pokemon.trainer_id
+                            trainerPokemon: {
+                                species: trainerPokemon.species,
+                                trainer: trainerPokemon.trainer_id
                             }
                         })
                 })
