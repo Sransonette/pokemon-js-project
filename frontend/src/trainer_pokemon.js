@@ -2,28 +2,20 @@ class TrainerPokemon {
 
     constructor(trainerPokemon){
         this.id = trainerPokemon.id
-        this.name = trainerPokemon.species
+        this.species = trainerPokemon.species
+        
     }
 
-    static createTrainerPokemon(){
-        debugger
-        // if (Trainer.this.id )
-        //let trainerForm = document.getElementById('trainer-form')
-        let welcome = document.getElementById('welcome')
-        welcome.addEventListener('click', function(e){
+    static renderTrainerPokemon(){
+        let trainerName = document.getElementById('trainer-name')
+        trainerName.addEventListener('click', function(e){
             e.preventDefault()
-                fetch(this.trainersPokemonURL, {
+                fetch("http://localhost:3000/api/v1/trainers_pokemons", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
-                    body: JSON.stringify(
-                        {
-                            pokemon: {
-                                name: e.target.children[1].value
-                            }
-                        })
                 })
                     .then(resp => {
                         return resp.json()
@@ -42,8 +34,9 @@ class TrainerPokemon {
         const container = document.querySelector(".pokemon-collection")
         let pokemonContainer = document.querySelector('.trainer-p-collection')
         container.remove()
-        let lastPokemon = document.createTextNode(this.species);
-        container.appendChild(currentForm)
+        let caughtPokemon = document.createTextNode(this.species);
+        pokemonContainer.appendChild(currentForm)
+        pokemonContainer.appendChild(caughtPokemon)
         capture.innerText = "Below are the pokemon you currently have caught"
         
     }
@@ -60,11 +53,6 @@ class TrainerPokemon {
         container.appendChild(releaseForm)
         releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
     }
-
-
-
-
-
 
 
 }

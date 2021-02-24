@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function(){
 document.addEventListener('DOMContentLoaded', function(){
     let trainerName = document.getElementById('trainer-name')
     trainerName.addEventListener('click', grabTrainersPokemon)
+    TrainerPokemon.renderTrainerPokemon()
 })
 
 const grabTrainersPokemon = async () => {
