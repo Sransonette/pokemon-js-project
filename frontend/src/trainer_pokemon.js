@@ -59,12 +59,6 @@ class TrainerPokemon {
         
     }
 
-    async releasePokemon(e) {
-        e.preventDefault()
-        let resp = await newFetch.destroyPokemon(this)
-        
-    }
-
 
 }
 

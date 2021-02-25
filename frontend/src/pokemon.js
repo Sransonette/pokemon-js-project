@@ -29,7 +29,7 @@ class Pokemon {
         releaseForm.appendChild(releaseBtn)
         releaseForm.id = `form#${this.id}`
         pokemonContainer.appendChild(releaseForm)
-        releaseForm.addEventListener('submit', this.releasePokemon)
+        releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
     }
       
 
@@ -50,11 +50,11 @@ class Pokemon {
     //    // }
     // }
     
-    // async releasePokemon(e) {
-    //     e.preventDefault()
-    //     let resp = await newFetch.destroyPokemon(this)
+    async releasePokemon(e) {
+        e.preventDefault()
+        let resp = await newFetch.destroyPokemon(this)
         
-    // }
+    }
 
     // async catchPokemon(e) {
     //     debugger
