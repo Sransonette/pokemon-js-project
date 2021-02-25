@@ -10,8 +10,8 @@ class FetchFunctions {
     }
 
     async fetchTrainersPokemons() {
-        const name = document.getElementById('trainer-name').value
-        let response = this.findTrainer('Sean')
+        const name = document.getElementById('trainer-name').innerText
+        let response = this.findTrainer(name)
         let json = await response
         let pokemons = await  json.pokemons
         return pokemons
