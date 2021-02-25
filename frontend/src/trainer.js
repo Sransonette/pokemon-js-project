@@ -50,7 +50,9 @@ class Trainer {
 
     grabTrainersPokemon() {
 
-        
+        //this is to grab trainer id and created pokemon
+
+
     }
 
 

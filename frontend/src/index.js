@@ -18,7 +18,7 @@ const grabTrainersPokemon = async () => {
     pokemon.map(pokemon => {
        let newTrainerPokemon = new TrainerPokemon(pokemon)
        newTrainerPokemon.displayPokemon()
-       newPokemon.releasePokemonBtn()
+       newTrainerPokemon.releasePokemonBtn()
        
       
     })
@@ -28,7 +28,7 @@ const grabPokemon = async () => {
     const pokemon = await newFetch.fetchPokemons()
     
     pokemon.map(pokemon => {
-       let newPokemon = new Pokemon(pokemon)
+       let newPokemon = new TrainerPokemon(pokemon)
        newPokemon.renderPokemon() 
        newPokemon.catchPokemonBtn()
        
