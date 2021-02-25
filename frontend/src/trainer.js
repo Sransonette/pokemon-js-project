@@ -7,7 +7,6 @@ class Trainer {
 
 
     displayTrainer() {
-        debugger
         let trainerName = document.getElementById('trainer-name')
         let welcome = document.getElementById('welcome')
         let capture = document.getElementById('name-label')
@@ -19,7 +18,7 @@ class Trainer {
         capture.innerText = "Which Pokemon would you like to catch? Click your name to see personal pokemon collection"
         nameInput.remove('name-input');
         submitUserBtn.remove('submitUserBtn')
-        debugger
+        
         
     }
 

@@ -10,16 +10,11 @@ class FetchFunctions {
     }
 
     async fetchTrainersPokemons() {
-
-        const response = await fetch(this.trainersPokemonURL, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-        return response.json()
-
+        const name = document.getElementById('trainer-name').value
+        let response = this.findTrainer('Sean')
+        let json = await response
+        let pokemons = await  json.pokemons
+        return pokemons
     }
 
     async fetchPokemons() {
@@ -63,9 +58,9 @@ class FetchFunctions {
     
 
     async catchPokemonFetch(trainerPokemon) {
-        debugger
-        let trainer_id = Trainer.getTrainerId()
-        const resp = fetch(`${this.trainersPokemonURL}`, {
+        let name = document.getElementById('trainer-name')
+        let trainer = await this.findTrainer(name.innerText)
+        const resp = fetch(`${this.trainersPokemonURL}/${trainer.id}/${trainerPokemon.id}`, {
             method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -75,7 +70,7 @@ class FetchFunctions {
                         {
                             trainers_pokemon: {
                                 species: trainerPokemon.species,
-                                trainer_id: trainer_id
+                                trainer_id: trainer.id
                             }
                         })
                 })
@@ -85,10 +80,9 @@ class FetchFunctions {
 
     }
 
-    static createTrainer(){
-        let trainerForm = document.getElementById('trainer-form')
-        trainerForm.addEventListener('submit', function(e){
-            e.preventDefault()
+    createTrainer(e){
+        e.preventDefault()
+        let name = e.target.children[1].value
                 fetch('http://localhost:3000/api/v1/trainers', {
                     method: "POST",
                     headers: {
@@ -98,7 +92,8 @@ class FetchFunctions {
                     body: JSON.stringify(
                         {
                             trainer: {
-                                name: e.target.children[1].value
+                                
+                                name: name
                             }
                         })
                 })
@@ -109,8 +104,14 @@ class FetchFunctions {
                         let newTrainer = new Trainer(trainer)
                         newTrainer.displayTrainer()
                     })
-        })
+                
 
+    }
+
+    findTrainer = async (name) => {
+        const response = await fetch(`${this.trainerURL}/${name}`)
+        const obj = await response.json()
+        return obj
     }
 
 
