@@ -39,9 +39,7 @@ class TrainerPokemon {
     displayPokemon() {
         const currentForm = document.createElement('form')
         let capture = document.getElementById('name-label')
-        const container = document.querySelector(".pokemon-collection")
         let pokemonContainer = document.querySelector('.trainer-p-collection')
-        container.remove()
         let caughtPokemon = document.createTextNode(this.species);
         pokemonContainer.appendChild(currentForm)
         pokemonContainer.appendChild(caughtPokemon)
@@ -50,7 +48,7 @@ class TrainerPokemon {
     }
 
     releasePokemonBtn() {
-        const container = document.querySelector(".pokemon-collection")
+        let pokemonContainer = document.querySelector('.trainer-p-collection')
         const releaseForm = document.createElement('form')
         const releaseBtn = document.createElement('input')
         releaseBtn.setAttribute('type','submit')
@@ -58,7 +56,7 @@ class TrainerPokemon {
         releaseBtn.id = `release#${this.id}`
         releaseForm.appendChild(releaseBtn)
         releaseForm.id = `form#${this.id}`
-        container.appendChild(releaseForm)
+        pokemonContainer.appendChild(releaseForm)
         releaseForm.addEventListener('submit', this.releasePokemon.bind(this))
     }
 

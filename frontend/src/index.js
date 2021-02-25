@@ -3,7 +3,8 @@ const newFetch = new FetchFunctions()
 document.addEventListener('DOMContentLoaded', function(){
     let trainerForm = document.getElementById('trainer-form')
     trainerForm.addEventListener('submit', grabPokemon)
-    Trainer.createTrainer()
+    FetchFunctions.createTrainer()
+
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -13,8 +14,11 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 const grabTrainersPokemon = async () => {
-    const pokemon = await newFetch.fetchTrainersPokemons()
-    
+    const container = document.querySelector(".pokemon-collection")
+    if (container != null){
+            container.remove();
+        } 
+    const pokemon = await newFetch.fetchTrainersPokemons()   
     pokemon.map(pokemon => {
        let newTrainerPokemon = new TrainerPokemon(pokemon)
        newTrainerPokemon.displayPokemon()

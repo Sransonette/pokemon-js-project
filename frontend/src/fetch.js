@@ -62,8 +62,9 @@ class FetchFunctions {
         
     
 
-    async catchPokemonFetch(trainerPokemon) { 
-        //debugger
+    async catchPokemonFetch(trainerPokemon) {
+        debugger
+        let trainer_id = Trainer.getTrainerId()
         const resp = fetch(`${this.trainersPokemonURL}`, {
             method: "POST",
                     headers: {
@@ -74,13 +75,41 @@ class FetchFunctions {
                         {
                             trainers_pokemon: {
                                 species: trainerPokemon.species,
-                                trainer_id: trainerPokemon.trainer_id
+                                trainer_id: trainer_id
                             }
                         })
                 })
                     .then(resp => {
                         return resp.json()
                     })
+
+    }
+
+    static createTrainer(){
+        let trainerForm = document.getElementById('trainer-form')
+        trainerForm.addEventListener('submit', function(e){
+            e.preventDefault()
+                fetch('http://localhost:3000/api/v1/trainers', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            trainer: {
+                                name: e.target.children[1].value
+                            }
+                        })
+                })
+                    .then(resp => {
+                        return resp.json()
+                    })
+                    .then(trainer => {
+                        let newTrainer = new Trainer(trainer)
+                        newTrainer.displayTrainer()
+                    })
+        })
 
     }
 
