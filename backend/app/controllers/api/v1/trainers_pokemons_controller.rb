@@ -6,7 +6,6 @@ class Api::V1::TrainersPokemonsController < ApplicationController
     end
 
     def create
-        #binding.pry
         trainer = Trainer.find(params[:trainer_id])
         pokemon = Pokemon.find(params[:pokemon_id])
         trainer.pokemons << pokemon
@@ -15,11 +14,9 @@ class Api::V1::TrainersPokemonsController < ApplicationController
     end
 
     def delete
-        #binding.pry
         trainer = Trainer.find(params[:trainer_id])
         pokemon = Pokemon.find(params[:pokemon_id])
         trainer.pokemons.destroy(pokemon)
-
     end
 
     private

@@ -9,12 +9,10 @@ class FetchFunctions {
 
     }
 
-    async fetchTrainersPokemons() {
-        const name = document.getElementById('trainer-name').innerText
-        let response = this.findTrainer(name)
-        let json = await response
-        let pokemons = await  json.pokemons
-        return pokemons
+    fetchTrainers() {
+        fetch(this.trainerURL)
+        .then(resp => resp.json())
+        .then(trainers => console.log(trainers))
     }
 
     async fetchPokemons() {
@@ -28,10 +26,12 @@ class FetchFunctions {
         return response.json()
     }
 
-    fetchTrainers() {
-        fetch(this.trainerURL)
-        .then(resp => resp.json())
-        .then(trainers => console.log(trainers))
+    async fetchTrainersPokemons() {
+        const name = document.getElementById('trainer-name').innerText
+        let response = this.findTrainer(name)
+        let json = await response
+        let pokemons = await  json.pokemons
+        return pokemons
     }
 
     async destroyPokemon(pokemon) {
