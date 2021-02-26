@@ -7,15 +7,12 @@ class TrainerPokemon {
     }
 
     renderPokemon() {
-        //if(this.trainer_id ==1){
         const container = document.querySelector(".pokemon-collection")
         let lastPokemon = document.createTextNode(this.species);
         container.appendChild(lastPokemon)
-        //}
     }  
 
     catchPokemonBtn() {
-        //if(this.trainer_id == 1){
         const container = document.querySelector(".pokemon-collection")
         const catchForm = document.createElement('form')
         const catchBtn = document.createElement('input')
@@ -24,11 +21,9 @@ class TrainerPokemon {
         catchBtn.id = `catch#${this.id}`
         catchForm.appendChild(catchBtn)
         catchForm.id = `form#${this.id}`
-        let lastPokemon = document.createTextNode(this.species);
         container.appendChild(catchForm)
         catchForm.addEventListener('submit', this.catchPokemon.bind(this))
-        
-       // }
+
     }
 
     async catchPokemon(e) {
