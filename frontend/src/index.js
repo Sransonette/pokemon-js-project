@@ -7,10 +7,21 @@ document.addEventListener('DOMContentLoaded', function(){
     trainerForm.addEventListener('submit', newFetch.createTrainer);
 })
 
+const grabPokemon = async () => {
+    const pokemon = await newFetch.fetchPokemons()
+    
+    pokemon.map(pokemon => {
+       let newPokemon = new TrainerPokemon(pokemon)
+       newPokemon.renderPokemon() 
+       newPokemon.catchPokemonBtn()
+       
+       
+    })
+}
+
 document.addEventListener('DOMContentLoaded', function(){
     let trainerName = document.getElementById('trainer-name')
     trainerName.addEventListener('click', grabTrainersPokemon)
-    //TrainerPokemon.renderTrainerPokemon()
 })
 
 const grabTrainersPokemon = async () => {
@@ -26,17 +37,7 @@ const grabTrainersPokemon = async () => {
     })
 }
 
-const grabPokemon = async () => {
-    const pokemon = await newFetch.fetchPokemons()
-    
-    pokemon.map(pokemon => {
-       let newPokemon = new TrainerPokemon(pokemon)
-       newPokemon.renderPokemon() 
-       newPokemon.catchPokemonBtn()
-       
-       
-    })
-}
+
 
 
 

@@ -6,19 +6,19 @@ class Api::V1::TrainersController < ApplicationController
     end
     
     def create
-        if Trainer.find_by(:name => trainer_params[:name])
-            trainer = Trainer.find_by(:name => trainer_params[:name])
-            redirect_to "/api/v1/trainers/#{trainer.id}"
-        else
-            trainer = Trainer.create(trainer_params)
-            render json: trainer
-        end
-
+        trainer = Trainer.find_or_initialize_by(trainer_params)
+            if !Trainer.exists?(trainer.id)
+                trainer.save
+                render json: trainer
+            end
+                redirect_to api_v1_trainer_path(trainer)
     end
 
     def show 
-        trainer = Trainer.find_by(:id => params[:id].to_i)
-        render json: trainer
+        trainer = Trainer.find_by(:id => params[:id]) || Trainer.find_by(name: params[:id])
+        render json: trainer.to_json(:include=> {
+            :pokemons => {except: [:created_at,:updated_at]}
+        })
     end
 
     private

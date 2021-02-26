@@ -6,28 +6,6 @@ class TrainerPokemon {
         
     }
 
-    // static renderTrainerPokemon(){
-    //     let trainerName = document.getElementById('trainer-name')
-    //     trainerName.addEventListener('click', function(e){
-    //         e.preventDefault()
-    //             fetch("http://localhost:3000/api/v1/trainers_pokemons", {
-    //                 method: "GET",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                     "Accept": "application/json"
-    //                 },
-    //             })
-    //                 .then(resp => {
-    //                     return resp.json()
-    //                 })
-    //                 .then(trainerPokemon => {
-    //                     let newTrainerPokemon = new TrainerPokemon(trainerPokemon)
-    //                     newTrainerPokemon.displayPokemon()
-    //                 })
-    //     })
-
-    // }
-
     renderPokemon() {
         //if(this.trainer_id ==1){
         const container = document.querySelector(".pokemon-collection")
