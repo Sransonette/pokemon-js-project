@@ -6,7 +6,7 @@ class Api::V1::TrainersController < ApplicationController
     end
     
     def create
-        trainer = Trainer.find_or_initialize_by(trainer_params)
+        trainer = Trainer.find_or_create_by(trainer_params)
             if !Trainer.exists?(trainer.id)
                 trainer.save
                 render json: trainer

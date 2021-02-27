@@ -25225,3 +25225,751 @@ Processing by Api::V1::TrainersController#show as JSON
 Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1720)
 
 
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:36:00 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:36:00 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:36:00 -0600
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.7ms | Allocations: 9018)
+
+
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 26ms (ActiveRecord: 0.7ms | Allocations: 10361)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2549)
+
+
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:36:01 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:36:01 -0600
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 2028)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 1668)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:36:01 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 124ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 6002)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:36:03 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2341)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:44:05 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:44:05 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  Parameters: {"pokemon"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 2718)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 3751)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:44:05 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1839)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:19 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2232)
+
+
+Started POST "/api/v1/trainers_pokemons/1/14" for ::1 at 2021-02-26 19:44:19 -0600
+Processing by Api::V1::TrainersPokemonsController#create as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Charmander", "trainer_id"=>1}, "trainer_id"=>"1", "pokemon_id"=>"14"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:9:in `create'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:10:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[36mTrainersPokemon Create (3.3ms)[0m  [1m[32mINSERT INTO "trainers_pokemons" ("trainer_id", "pokemon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["trainer_id", 1], ["pokemon_id", 14], ["created_at", "2021-02-27 01:44:19.296492"], ["updated_at", "2021-02-27 01:44:19.296492"]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 42ms (ActiveRecord: 10.9ms | Allocations: 9612)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:44:19 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1808)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:19 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2320)
+
+
+Started POST "/api/v1/trainers_pokemons/1/17" for ::1 at 2021-02-26 19:44:20 -0600
+Processing by Api::V1::TrainersPokemonsController#create as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Gengar", "trainer_id"=>1}, "trainer_id"=>"1", "pokemon_id"=>"17"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:9:in `create'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:10:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[36mTrainersPokemon Create (0.9ms)[0m  [1m[32mINSERT INTO "trainers_pokemons" ("trainer_id", "pokemon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["trainer_id", 1], ["pokemon_id", 17], ["created_at", "2021-02-27 01:44:20.010340"], ["updated_at", "2021-02-27 01:44:20.010340"]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 18ms (ActiveRecord: 12.0ms | Allocations: 5022)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:44:20 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1897)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:20 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2408)
+
+
+Started POST "/api/v1/trainers_pokemons/1/18" for ::1 at 2021-02-26 19:44:20 -0600
+Processing by Api::V1::TrainersPokemonsController#create as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Dragonite", "trainer_id"=>1}, "trainer_id"=>"1", "pokemon_id"=>"18"}
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:9:in `create'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:10:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[36mTrainersPokemon Create (0.7ms)[0m  [1m[32mINSERT INTO "trainers_pokemons" ("trainer_id", "pokemon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["trainer_id", 1], ["pokemon_id", 18], ["created_at", "2021-02-27 01:44:20.818609"], ["updated_at", "2021-02-27 01:44:20.818609"]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:11:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 16ms (ActiveRecord: 10.1ms | Allocations: 5042)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:44:20 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1984)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:25 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2496)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:28 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2496)
+
+
+Started DELETE "/api/v1/trainers_pokemons/1/14" for ::1 at 2021-02-26 19:44:28 -0600
+Processing by Api::V1::TrainersPokemonsController#delete as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Charmander"}, "trainer_id"=>"1", "pokemon_id"=>"14"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:17:in `delete'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:18:in `delete'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Load (0.1ms)[0m  [1m[34mSELECT "trainers_pokemons".* FROM "trainers_pokemons" WHERE "trainers_pokemons"."trainer_id" = ? AND "trainers_pokemons"."pokemon_id" = ?[0m  [["trainer_id", 1], ["pokemon_id", 14]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Destroy (1.2ms)[0m  [1m[31mDELETE FROM "trainers_pokemons" WHERE "trainers_pokemons"."id" = ?[0m  [["id", 56]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+Completed 204 No Content in 15ms (ActiveRecord: 9.4ms | Allocations: 4927)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:29 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 2408)
+
+
+Started DELETE "/api/v1/trainers_pokemons/1/17" for ::1 at 2021-02-26 19:44:29 -0600
+Processing by Api::V1::TrainersPokemonsController#delete as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Gengar"}, "trainer_id"=>"1", "pokemon_id"=>"17"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:17:in `delete'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:18:in `delete'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Load (0.1ms)[0m  [1m[34mSELECT "trainers_pokemons".* FROM "trainers_pokemons" WHERE "trainers_pokemons"."trainer_id" = ? AND "trainers_pokemons"."pokemon_id" = ?[0m  [["trainer_id", 1], ["pokemon_id", 17]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Destroy (0.5ms)[0m  [1m[31mDELETE FROM "trainers_pokemons" WHERE "trainers_pokemons"."id" = ?[0m  [["id", 57]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+Completed 204 No Content in 14ms (ActiveRecord: 9.5ms | Allocations: 5276)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:29 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.0ms | ActiveRecord: 0.2ms | Allocations: 2320)
+
+
+Started DELETE "/api/v1/trainers_pokemons/1/18" for ::1 at 2021-02-26 19:44:29 -0600
+Processing by Api::V1::TrainersPokemonsController#delete as JSON
+  Parameters: {"trainers_pokemon"=>{"species"=>"Dragonite"}, "trainer_id"=>"1", "pokemon_id"=>"18"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:17:in `delete'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:18:in `delete'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Load (0.1ms)[0m  [1m[34mSELECT "trainers_pokemons".* FROM "trainers_pokemons" WHERE "trainers_pokemons"."trainer_id" = ? AND "trainers_pokemons"."pokemon_id" = ?[0m  [["trainer_id", 1], ["pokemon_id", 18]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[36mTrainersPokemon Destroy (0.6ms)[0m  [1m[31mDELETE FROM "trainers_pokemons" WHERE "trainers_pokemons"."id" = ?[0m  [["id", 58]]
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_pokemons_controller.rb:19:in `delete'
+Completed 204 No Content in 13ms (ActiveRecord: 8.3ms | Allocations: 5255)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:44:32 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:44:32 -0600
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Processing by Api::V1::PokemonsController#index as JSON
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1884)
+
+
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms | Allocations: 2050)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:44:32 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1840)
+
+
+Started GET "/api/v1/trainers/Sean" for ::1 at 2021-02-26 19:44:33 -0600
+Processing by Api::V1::TrainersController#show as */*
+  Parameters: {"id"=>"Sean"}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2245)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:44:47 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:44:47 -0600
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Christy"}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Christy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2754)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[36mTrainer Create (1.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Christy"], ["created_at", "2021-02-27 01:44:47.366800"], ["updated_at", "2021-02-27 01:44:47.366800"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 18ms (Views: 0.3ms | ActiveRecord: 9.7ms | Allocations: 6261)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/trainers_controller.rb:14:in `create'
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:45:14 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:45:14 -0600
+Processing by Api::V1::PokemonsController#index as JSON
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  Parameters: {"trainer"=>{"name"=>"Reee"}}
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 2272)
+
+
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Reee"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[36mTrainer Create (0.7ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Reee"], ["created_at", "2021-02-27 01:45:14.910209"], ["updated_at", "2021-02-27 01:45:14.910209"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 13ms (Views: 0.2ms | ActiveRecord: 7.4ms | Allocations: 5924)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/trainers_controller.rb:14:in `create'
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:09 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:09 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.6ms | Allocations: 4496)
+
+
+  
+SyntaxError (/home/sransonette/code/labs/pokemon-js-project/backend/app/controllers/api/v1/trainers_controller.rb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/api/v1/trainers_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+app/controllers/api/v1/trainers_controller.rb:30: syntax error, unexpected end-of-input, expecting end
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:19 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:19 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.7ms | Allocations: 6271)
+
+
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 4342)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:47:19 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3181)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:25 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:25 -0600
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Jake"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Jake"], ["LIMIT", 1]]
+Processing by Api::V1::PokemonsController#index as JSON
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  Parameters: {"pokemon"=>{}}
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/4
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1953)
+
+
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2675)
+
+
+Started GET "/api/v1/trainers/4" for ::1 at 2021-02-26 19:47:25 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"4", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1834)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:30 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:30 -0600
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+Processing by Api::V1::TrainersController#create as JSON
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  Parameters: {"trainer"=>{"name"=>"Christy"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Christy"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2971)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/11
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 2913)
+
+
+Started GET "/api/v1/trainers/11" for ::1 at 2021-02-26 19:47:30 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"11", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 11]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1720)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:37 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:37 -0600
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"trainer"=>{"name"=>"christy"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "christy"], ["LIMIT", 1]]
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1998)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Create (1.0ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "christy"], ["created_at", "2021-02-27 01:47:37.618566"], ["updated_at", "2021-02-27 01:47:37.618566"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/13
+Completed 302 Found in 16ms (ActiveRecord: 7.7ms | Allocations: 7495)
+
+
+Started GET "/api/v1/trainers/13" for ::1 at 2021-02-26 19:47:37 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"13", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 13]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1720)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:47:52 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:47:52 -0600
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Trey"}}
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Trey"], ["LIMIT", 1]]
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 2304)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Create (1.5ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Trey"], ["created_at", "2021-02-27 01:47:52.018424"], ["updated_at", "2021-02-27 01:47:52.018424"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/14
+Completed 302 Found in 21ms (ActiveRecord: 11.0ms | Allocations: 6925)
+
+
+Started GET "/api/v1/trainers/14" for ::1 at 2021-02-26 19:47:52 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"14", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 14]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1720)
+
+
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:48:12 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:48:12 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Processing by Api::V1::TrainersController#create as JSON
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.9ms | Allocations: 6271)
+
+
+  Parameters: {"trainer"=>{"name"=>"Sean"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Sean"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/1
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms | Allocations: 4393)
+
+
+Started GET "/api/v1/trainers/1" for ::1 at 2021-02-26 19:48:12 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"1", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 3180)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:48:17 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:48:17 -0600
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"trainer"=>{"name"=>"Drew"}}
+  Parameters: {"pokemon"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Drew"], ["LIMIT", 1]]
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2939)
+
+
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[36mTrainer Create (0.8ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Drew"], ["created_at", "2021-02-27 01:48:17.196918"], ["updated_at", "2021-02-27 01:48:17.196918"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.2ms | Allocations: 6013)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/trainers_controller.rb:14:in `create'
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:48:31 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:48:31 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.7ms | Allocations: 4498)
+
+
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Drew"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Drew"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/15
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms | Allocations: 4374)
+
+
+Started GET "/api/v1/trainers/15" for ::1 at 2021-02-26 19:48:31 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"15", "trainer"=>{}}
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 15]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3180)
+
+
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:48:36 -0600
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:48:36 -0600
+Processing by Api::V1::TrainersController#create as JSON
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  Parameters: {"trainer"=>{"name"=>"Stu"}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Stu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2739)
+
+
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Create (1.0ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Stu"], ["created_at", "2021-02-27 01:48:36.593324"], ["updated_at", "2021-02-27 01:48:36.593324"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[36mTrainer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:10:in `create'
+Redirected to http://localhost:3000/api/v1/trainers/16
+Completed 302 Found in 17ms (ActiveRecord: 9.6ms | Allocations: 6905)
+
+
+Started GET "/api/v1/trainers/16" for ::1 at 2021-02-26 19:48:36 -0600
+Processing by Api::V1::TrainersController#show as JSON
+  Parameters: {"id"=>"16", "trainer"=>{}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:18:in `show'
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" INNER JOIN "trainers_pokemons" ON "pokemons"."id" = "trainers_pokemons"."pokemon_id" WHERE "trainers_pokemons"."trainer_id" = ?[0m  [["trainer_id", 16]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:19:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1720)
+
+
+Started GET "/api/v1/pokemons" for ::1 at 2021-02-26 19:48:50 -0600
+Started POST "/api/v1/trainers" for ::1 at 2021-02-26 19:48:50 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PokemonsController#index as JSON
+  Parameters: {"pokemon"=>{}}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/controllers/api/v1/pokemons_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 4527)
+
+
+Processing by Api::V1::TrainersController#create as JSON
+  Parameters: {"trainer"=>{"name"=>"Louie"}}
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."name" = ? LIMIT ?[0m  [["name", "Louie"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:9:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[36mTrainer Create (0.7ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Louie"], ["created_at", "2021-02-27 01:48:50.176513"], ["updated_at", "2021-02-27 01:48:50.176513"]]
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/trainers_controller.rb:11:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 6998)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/trainers_controller.rb:14:in `create'
