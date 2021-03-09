@@ -26,11 +26,5 @@ class Trainer {
         
     }
 
-    static getTrainerId() {
-        let trainerName = document.getElementById('trainer-name')
-
-    }
-
-
 
 }
