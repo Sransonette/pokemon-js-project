@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :trainers_pokemons
       resources :pokemons
       post '/trainers_pokemons/:trainer_id/:pokemon_id', to: 'trainers_pokemons#create'
-      delete '/trainers_pokemons/:trainer_id/:pokemon_id', to: 'trainers_pokemons#delete'
+      delete '/pokemons/:id', to: 'pokemons#destroy'
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

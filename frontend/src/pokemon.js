@@ -36,6 +36,7 @@ class Pokemon {
         e.preventDefault()
         let resp = await newFetch.destroyPokemon(this)
         
+        
     }
 
 

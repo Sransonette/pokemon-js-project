@@ -14,8 +14,6 @@ const grabPokemon = async () => {
        let newPokemon = new TrainerPokemon(pokemon)
        newPokemon.renderPokemon() 
        newPokemon.catchPokemonBtn()
-       
-       
     })
 }
 

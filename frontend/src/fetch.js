@@ -35,23 +35,16 @@ class FetchFunctions {
     }
 
     async destroyPokemon(pokemon) {
-        let name = document.getElementById('trainer-name')
-        let trainer = await this.findTrainer(name.innerText)
-        const resp = fetch(`${this.trainersPokemonURL}/${trainer.id}/${pokemon.id}`, {
+        
+        const response = await fetch(`${this.pokemonURL}/${pokemon.id}`, {
             method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(
-                        {
-                            trainers_pokemon: {
-                                species: pokemon.species,
-                                trainer_id: pokemon.trainer_id
-                            }
-                        })
-                })
-                    .then (console.log)
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                },
+            })
+            return response.json()
+
 
     }
         

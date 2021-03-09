@@ -8,7 +8,7 @@ Add this to a new folder:
 4. Run rails s (server) within the backend folder
 5. Open the index.html within the frontend folder
 ## Usage 
-When the user opens the html file, they are greeted with a login. The user can enter a name to login. Once logged in a list of pokemon availible for their team show up that are "chatchable" to be added to their team.  One the desired pokemon have been selected, the user can click on their name to see all the pokemon they have caught.
+When the user opens the html file, they are greeted with a login. The user can enter a name to login. Once logged in a list of pokemon availible for their team show up that are "catchable" to be added to their team.  Once the desired pokemon have been selected, the user can click on their name to see all the pokemon they have caught.
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://https://github.com/Sransonette/pokemon-js-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 ## License
