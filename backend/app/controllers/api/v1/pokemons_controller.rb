@@ -3,7 +3,7 @@ class Api::V1::PokemonsController < ApplicationController
     def index
        # binding.pry
         pokemons = Pokemon.all.uniq{|p| p.species}
-        render json: pokemons 
+        render json: pokemons
     end
 
     def destroy
