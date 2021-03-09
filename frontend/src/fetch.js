@@ -57,7 +57,7 @@ class FetchFunctions {
     async catchPokemonFetch(pokemon) {
         let name = document.getElementById('trainer-name')
         let trainer = await this.findTrainer(name.innerText)
-        const resp = fetch(`${this.trainersPokemonURL}/${trainer.id}/${pokemon.id}`, {
+        const resp = fetch(`${this.pokemonURL}/${trainer.id}/${pokemon.id}`, {
             method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ class FetchFunctions {
                     },
                     body: JSON.stringify(
                         {
-                            trainers_pokemon: {
+                            pokemons: {
                                 species: pokemon.species,
                                 trainer_id: trainer.id
                             }
