@@ -47,8 +47,6 @@ class FetchFunctions {
 
 
     }
-        
-    
 
     async catchPokemonFetch(trainerPokemon) {
         let name = document.getElementById('trainer-name')

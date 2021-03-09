@@ -18,21 +18,25 @@ const grabPokemon = async () => {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
+    
     let trainerName = document.getElementById('trainer-name')
     trainerName.addEventListener('click', grabTrainersPokemon)
+
 })
 
 const grabTrainersPokemon = async () => {
+    let pokemonList = document.querySelector(".trainer-p-collection").children
     const container = document.querySelector(".pokemon-collection")
-    if (container != null){
-            container.remove();
-        } 
-    const pokemons = await newFetch.fetchTrainersPokemons()
-    pokemons.map(pokemon => {
-       let pokemonInstance = new Pokemon(pokemon)
-       pokemonInstance.displayPokemon()
-       pokemonInstance.releasePokemonBtn()
-    })
+    if (pokemonList.length === 0){
+        const pokemons = await newFetch.fetchTrainersPokemons()
+        pokemons.map(pokemon => {
+        let pokemonInstance = new Pokemon(pokemon)
+        pokemonInstance.displayPokemon()
+        pokemonInstance.releasePokemonBtn()
+        })
+        container.remove()
+    }
+    
 }
 
 
