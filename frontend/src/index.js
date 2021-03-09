@@ -2,23 +2,20 @@ const newFetch = new FetchFunctions()
 
 document.addEventListener('DOMContentLoaded', function(){
     let trainerForm = document.getElementById('trainer-form')
-    let trainerName = document.getElementById('name-input').value
     trainerForm.addEventListener('submit', grabPokemon)
     trainerForm.addEventListener('submit', newFetch.createTrainer);
 })
 
 const grabPokemon = async () => {
     const pokemon = await newFetch.fetchPokemons()
-    
     pokemon.map(pokemon => {
-       let newPokemon = new TrainerPokemon(pokemon)
-       newPokemon.renderPokemon() 
+       let newPokemon = new Pokemon(pokemon)
+       newPokemon.displayCatchablePokemon() 
        newPokemon.catchPokemonBtn()
     })
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    
     let trainerName = document.getElementById('trainer-name')
     trainerName.addEventListener('click', grabTrainersPokemon)
 

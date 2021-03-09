@@ -1,12 +1,16 @@
 class Pokemon {
-    static allPokemon = []
+    
 
     constructor(pokemon){
         this.id = pokemon.id
         this.species = pokemon.species
         this.trainer_id =pokemon.trainer_id
-        Pokemon.allPokemon.push(this)
-        
+    }
+
+    displayCatchablePokemon() {
+        const container = document.querySelector(".pokemon-collection")
+        let lastPokemon = document.createTextNode(this.species);
+        container.appendChild(lastPokemon)
     }
 
     displayPokemon() {
@@ -21,6 +25,7 @@ class Pokemon {
         pokemonContainer.append(pokemonDiv)
         capture.innerText = "Below are the pokemon you currently have caught"
     }
+
 
     releasePokemonBtn() {
         let pokemonContainer = document.querySelector('.trainer-p-collection')
@@ -44,12 +49,25 @@ class Pokemon {
         
     }
 
+    catchPokemonBtn() {
+        const container = document.querySelector(".pokemon-collection")
+        const catchForm = document.createElement('form')
+        const catchBtn = document.createElement('input')
+        catchBtn.setAttribute('type', 'submit')
+        catchBtn.value = 'Catch'
+        catchBtn.id = `catch#${this.id}`
+        catchForm.appendChild(catchBtn)
+        catchForm.id = `form#${this.id}`
+        container.appendChild(catchForm)
+        catchForm.addEventListener('submit', this.catchPokemon.bind(this))
 
-    
+    }
 
-
-
-
+    async catchPokemon(e) {
+        e.preventDefault()
+        let resp = await newFetch.catchPokemonFetch(this)
+        
+    }
     
 
 }

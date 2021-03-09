@@ -34,6 +34,12 @@ class FetchFunctions {
         return pokemons
     }
 
+    findTrainer = async (name) => {
+        const response = await fetch(`${this.trainerURL}/${name}`)
+        const obj = await response.json()
+        return obj
+    }
+
     async destroyPokemon(pokemon) {
         
         const response = await fetch(`${this.pokemonURL}/${pokemon.id}`, {
@@ -48,10 +54,10 @@ class FetchFunctions {
 
     }
 
-    async catchPokemonFetch(trainerPokemon) {
+    async catchPokemonFetch(pokemon) {
         let name = document.getElementById('trainer-name')
         let trainer = await this.findTrainer(name.innerText)
-        const resp = fetch(`${this.trainersPokemonURL}/${trainer.id}/${trainerPokemon.id}`, {
+        const resp = fetch(`${this.trainersPokemonURL}/${trainer.id}/${pokemon.id}`, {
             method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -60,7 +66,7 @@ class FetchFunctions {
                     body: JSON.stringify(
                         {
                             trainers_pokemon: {
-                                species: trainerPokemon.species,
+                                species: pokemon.species,
                                 trainer_id: trainer.id
                             }
                         })
@@ -99,11 +105,7 @@ class FetchFunctions {
 
     }
 
-    findTrainer = async (name) => {
-        const response = await fetch(`${this.trainerURL}/${name}`)
-        const obj = await response.json()
-        return obj
-    }
+    
 
 
 }

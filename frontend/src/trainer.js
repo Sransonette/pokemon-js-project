@@ -18,7 +18,6 @@ class Trainer {
         nameInput.remove('name-input');
         submitUserBtn.remove('submitUserBtn')
         
-        
     }
 
     static getTrainerId() {
