@@ -16,7 +16,7 @@ class Api::V1::TrainersController < ApplicationController
 
     def show 
        # binding.pry
-        trainer = Trainer.find_by(:id => params[:id]) || Trainer.find_by(name: params[:id])
+        trainer = Trainer.find_by(id: params[:id]) || Trainer.find_by(name: params[:id])
         render json: trainer.to_json(:include=> {
             :pokemons => {except: [:created_at,:updated_at]}
         })
