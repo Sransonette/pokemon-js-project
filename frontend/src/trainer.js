@@ -1,10 +1,16 @@
 class Trainer {
 
+    static currentTrainer = null
+
     constructor(trainer){
         this.id = trainer.id
         this.name = trainer.name
+        this.constructor.setCurrentTrainer(this)
     }
 
+    static setCurrentTrainer(trainer) {
+        this.currentTrainer = trainer
+    }
 
     displayTrainer() {
         let trainerName = document.getElementById('trainer-name')

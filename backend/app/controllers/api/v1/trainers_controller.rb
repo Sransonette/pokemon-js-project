@@ -15,7 +15,6 @@ class Api::V1::TrainersController < ApplicationController
     end
 
     def show 
-       # binding.pry
         trainer = Trainer.find_by(id: params[:id]) || Trainer.find_by(name: params[:id])
         render json: trainer.to_json(:include=> {
             :pokemons => {except: [:created_at,:updated_at]}
@@ -26,9 +25,9 @@ class Api::V1::TrainersController < ApplicationController
     def trainer_params
         params.require(:trainer).permit(:name)
     end
-    
-#1) delete models not in use
-#2) refactor controllers accordingly
+
+
+
 #3) possibly re-think what you're using to get your pokemon menu on your ui.
 #4) possibly just create an array of pokemon species names to put on the dom on the front
 #5) alternatively, keep 3rd model and think about naming it "species"
