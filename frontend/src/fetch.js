@@ -37,11 +37,6 @@ class FetchFunctions {
 
     }
 
-    fetchTrainers() {
-        fetch(this.trainerURL)
-        .then(resp => resp.json())
-        .then(trainers => console.log(trainers))
-    }
 
     async fetchPokemons() {
         const response = await fetch(this.pokemonURL, {
