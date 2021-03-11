@@ -1,9 +1,16 @@
 class Api::V1::PokemonsController < ApplicationController
 
     def index
-       # binding.pry
         pokemons = Pokemon.all.uniq{|p| p.species}
         render json: pokemons
+    end
+
+    def create
+        trainer = Trainer.find(params[:pokemons][:trainer_id])
+        current_pokemon = Trainer.find(trainer.id).pokemons
+        pokemon = Pokemon.create(species: params[:pokemons][:species])
+        current_pokemon << pokemon
+        redirect_to api_v1_trainer_path(trainer)
     end
 
     def destroy
@@ -14,16 +21,6 @@ class Api::V1::PokemonsController < ApplicationController
             render json: {status: "Failure"}
         end
         
-    end
-
-    def create
-        #binding.pry
-        trainer = Trainer.find(params[:pokemons][:trainer_id])
-        current_pokemon = Trainer.find(trainer.id).pokemons
-        pokemon = Pokemon.create(species: params[:pokemons][:species])
-        #self.pokemon_id = pokemon.id
-        current_pokemon << pokemon
-        redirect_to api_v1_trainer_path(trainer)
     end
 
     private

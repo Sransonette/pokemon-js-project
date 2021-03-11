@@ -13,6 +13,24 @@ class Pokemon {
         container.appendChild(lastPokemon)
     }
 
+    catchPokemonBtn() {
+        const container = document.querySelector(".pokemon-collection")
+        const catchForm = document.createElement('form')
+        const catchBtn = document.createElement('input')
+        catchBtn.setAttribute('type', 'submit')
+        catchBtn.value = 'Catch'
+        catchBtn.id = `catch#${this.id}`
+        catchForm.appendChild(catchBtn)
+        catchForm.id = `form#${this.id}`
+        container.appendChild(catchForm)
+        catchForm.addEventListener('submit', this.catchPokemon.bind(this))
+    }
+
+    async catchPokemon(e) {
+        e.preventDefault()
+        let resp = await newFetch.catchPokemonFetch(this)
+    }
+
     displayPokemon() {
         const currentForm = document.createElement('form')
         let capture = document.getElementById('name-label')
@@ -49,25 +67,11 @@ class Pokemon {
         
     }
 
-    catchPokemonBtn() {
-        const container = document.querySelector(".pokemon-collection")
-        const catchForm = document.createElement('form')
-        const catchBtn = document.createElement('input')
-        catchBtn.setAttribute('type', 'submit')
-        catchBtn.value = 'Catch'
-        catchBtn.id = `catch#${this.id}`
-        catchForm.appendChild(catchBtn)
-        catchForm.id = `form#${this.id}`
-        container.appendChild(catchForm)
-        catchForm.addEventListener('submit', this.catchPokemon.bind(this))
+    
 
-    }
+    
 
-    async catchPokemon(e) {
-        e.preventDefault()
-        let resp = await newFetch.catchPokemonFetch(this)
-        
-    }
+    
     
 
 }

@@ -9,6 +9,34 @@ class FetchFunctions {
 
     }
 
+    createTrainer(e){
+        e.preventDefault()
+        let name = e.target.children[1].value
+                fetch('http://localhost:3000/api/v1/trainers', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            trainer: {
+                                
+                                name: name
+                            }
+                        })
+                })
+                    .then(resp => {
+                        return resp.json()
+                    })
+                    .then(trainer => {
+                        let newTrainer = new Trainer(trainer)
+                        newTrainer.displayTrainer()
+                    })
+                
+
+    }
+
     fetchTrainers() {
         fetch(this.trainerURL)
         .then(resp => resp.json())
@@ -24,27 +52,6 @@ class FetchFunctions {
             }
         })
         return response.json()
-    }
-
-    async fetchTrainersPokemons() {
-        const response = await fetch(`${this.trainerURL}/${Trainer.currentTrainer.id}`)
-        const obj = await response.json()
-        return obj.pokemons
-    }
-
-
-    async destroyPokemon(pokemon) {
-        
-        const response = await fetch(`${this.pokemonURL}/${pokemon.id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                },
-            })
-            return response.json()
-
-
     }
 
     async catchPokemonFetch(pokemon) {
@@ -69,34 +76,29 @@ class FetchFunctions {
 
     }
 
-    createTrainer(e){
-        e.preventDefault()
-        let name = e.target.children[1].value
-                fetch('http://localhost:3000/api/v1/trainers', {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify(
-                        {
-                            trainer: {
-                                
-                                name: name
-                            }
-                        })
-                })
-                    .then(resp => {
-                        return resp.json()
-                    })
-                    .then(trainer => {
-                        let newTrainer = new Trainer(trainer)
-                        newTrainer.displayTrainer()
-                        
-                    })
-                
+    async fetchTrainersPokemons() {
+        const response = await fetch(`${this.trainerURL}/${Trainer.currentTrainer.id}`)
+        const obj = await response.json()
+        return obj.pokemons
+    }
+
+    async destroyPokemon(pokemon) {
+        
+        const response = await fetch(`${this.pokemonURL}/${pokemon.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                },
+            })
+            return response.json()
+
 
     }
+
+    
+
+    
 
     
 

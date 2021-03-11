@@ -29,8 +29,8 @@ const grabTrainersPokemon = async () => {
         })
         container.remove()
     }
-    
 }
+
 
 
 

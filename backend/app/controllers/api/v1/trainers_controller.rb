@@ -32,8 +32,4 @@ class Api::V1::TrainersController < ApplicationController
 #4) possibly just create an array of pokemon species names to put on the dom on the front
 #5) alternatively, keep 3rd model and think about naming it "species"
 
-# trainers: name, pokemon: []
-# species: name
-# pokemon: name, species
-
 end
