@@ -46,7 +46,6 @@ class Pokemon {
 
 
     releasePokemonBtn() {
-        let pokemonContainer = document.querySelector('.trainer-p-collection')
         let pokemonDiv = document.getElementById(this.id)
         const releaseForm = document.createElement('form')
         const releaseBtn = document.createElement('input')

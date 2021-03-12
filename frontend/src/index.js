@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function(){
     trainerForm.addEventListener('submit', grabPokemon)
     trainerForm.addEventListener('submit', newFetch.createTrainer);
     trainerName.addEventListener('click', grabTrainersPokemon)
+    trainerDisplaybtn()
+
 })
 
 const grabPokemon = async () => {
@@ -30,6 +32,24 @@ const grabTrainersPokemon = async () => {
         container.remove()
     }
 }
+
+const trainerDisplaybtn = () => {
+    let btn = document.createElement("button")
+    btn.innerHTML = "All Trainers"
+    document.body.appendChild(btn);
+    btn.addEventListener("click", allTrainerFetch)
+    
+}
+
+const allTrainerFetch = async () => {
+    const trainers = await newFetch.fetchTrainers()
+    trainers.map(trainer => {
+        alert(trainer.name)
+    })
+    
+}
+
+
 
 
 

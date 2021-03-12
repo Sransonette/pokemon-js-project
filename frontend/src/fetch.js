@@ -37,7 +37,6 @@ class FetchFunctions {
 
     }
 
-
     async fetchPokemons() {
         const response = await fetch(this.pokemonURL, {
             method: 'GET',
@@ -47,6 +46,18 @@ class FetchFunctions {
             }
         })
         return response.json()
+    }
+
+    async fetchTrainers() {
+        const response = await fetch(this.trainerURL, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        return response.json()
+
     }
 
     async catchPokemonFetch(pokemon) {
